@@ -1,0 +1,69 @@
+﻿@model FinalProjectAl1.Models.GPXPageViewModel
+
+@{
+    ViewBag.Title = "GPX Page";
+}
+
+<h2>GPX Page</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary()
+    </div>
+}
+
+<div style="display: flex;">
+    <div style="width: 20%; padding: 10px;">
+        <h3>Add Marker</h3>
+        <form asp-action="AddMarker" asp-controller="GPX" method="post">
+            <div>
+                <input asp-for="MarkerName" placeholder="Name" class="form-control" /><br />
+                <input asp-for="MarkerLat" placeholder="Latitude" class="form-control" /><br />
+                <input asp-for="MarkerLng" placeholder="Longitude" class="form-control" /><br />
+                <button type="submit" class="btn btn-success">Add Marker</button>
+            </div>
+        </form>
+        <h4>Markers</h4>
+        <ul>
+            @foreach (var marker in Model.CustomMarkers ?? new List<CustomMarker>())
+            {
+                <li>@marker.Name (@marker.Lat, @marker.Lng)</li>
+            }
+        </ul>
+    </div>
+    <div style="width: 60%; padding: 10px;">
+        <h3>Upload GPX File</h3>
+        <form asp-action="UploadGPX" asp-controller="GPX" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".gpx" class="form-control" />
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <div>
+            <h4>Tracks</h4>
+            <ul>
+                @foreach (var track in Model.GpxTracks)
+                {
+                    <li>@track.Name - @track.Coordinates.Count points</li>
+                }
+            </ul>
+        </div>
+        <!-- Add JS map/elevation chart here as needed -->
+    </div>
+    <div style="width: 20%; padding: 10px;">
+        <h3>Distance and Bearing</h3>
+        <ul>
+            @foreach (var info in Model.DistanceBearingData)
+            {
+                <li>
+                    <b>@info.PlaneName</b>
+                    <ul>
+                        @foreach (var md in info.MarkerData)
+                        {
+                            <li>From @md.MarkerName: @md.Distance miles, Bearing: @md.Bearing°</li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
