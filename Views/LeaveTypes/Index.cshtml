@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FinalProjectAl1.Data.LeaveType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveTypeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveTypeNumberOfDays)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveTypeNumberOfDays)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LeaveTypeId" class="btn btn-outline-warning">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.LeaveTypeId" class="btn btn-outline-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.LeaveTypeId" class="btn btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
