@@ -1,14 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FinalProjectAl1.Data
+namespace FinalProjectAl1.Models.LeaveTypes
 {
-    public class LeaveType
+    //ReadOnly so this one model is used for both 'View' and 'Details' pages.
+    public class LeaveTypeReadOnlyVM
     {
-        //Pascal Case for EF Framework. Qualified properties for ease of XXXXX
         public int LeaveTypeId { get; set; }
-        [Column(TypeName = "nvarchar(150)")]
+
+        [Display(Name="Leave Type")]
         public string LeaveTypeName { get; set; } = string.Empty;
+        [Display(Name = "Days")]
         public int LeaveTypeNumberOfDays { get; set; }
     }
 }

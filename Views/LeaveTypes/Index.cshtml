@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FinalProjectAl1.Data.LeaveType>
+﻿@model IEnumerable<LeaveTypeReadOnlyVM>
 
 @{
     ViewData["Title"] = "Index";
@@ -25,10 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.LeaveTypeName)
+                    @Html.DisplayFor(modelItem => item.LeaveTypeName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LeaveTypeNumberOfDays)
+                    @Html.DisplayFor(modelItem => item.LeaveTypeNumberOfDays)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.LeaveTypeId" class="btn btn-outline-warning">Edit</a> 
