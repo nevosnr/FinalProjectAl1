@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProjectAl1.Models.LeaveTypes
 {
@@ -8,7 +7,7 @@ namespace FinalProjectAl1.Models.LeaveTypes
     {
         public int LeaveTypeId { get; set; }
 
-        [Display(Name="Leave Type")]
+        [Display(Name = "Leave Type")]
         public string LeaveTypeName { get; set; } = string.Empty;
         [Display(Name = "Days")]
         public int LeaveTypeNumberOfDays { get; set; }

@@ -1,15 +1,7 @@
-﻿using AutoMapper;
-using FinalProjectAl1.Data;
-using FinalProjectAl1.Models.LeaveTypes;
+﻿using FinalProjectAl1.Models.LeaveTypes;
 using FinalProjectAl1.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace FinalProjectAl1.Controllers
 {
@@ -54,7 +46,7 @@ namespace FinalProjectAl1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(LeaveTypeCreateVM leaveTypeCreate) //Improves security
         {
-            if(await _leaveTypesService.CheckIfLeaveTypeExistsAsync(leaveTypeCreate.LeaveTypeName))
+            if (await _leaveTypesService.CheckIfLeaveTypeExistsAsync(leaveTypeCreate.LeaveTypeName))
             {
                 ModelState.AddModelError(nameof(leaveTypeCreate.LeaveTypeName), "This leave type already exists");
             }

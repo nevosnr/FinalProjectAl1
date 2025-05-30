@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using FinalProjectAl1.Data;
 
 namespace FinalProjectAl1.Data
 {

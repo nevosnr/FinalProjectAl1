@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace FinalProjectAl1.Models
+﻿namespace FinalProjectAl1.Models
 {
     public class GPXPageViewModel
     {

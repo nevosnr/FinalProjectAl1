@@ -1,9 +1,7 @@
 ﻿using FinalProjectAl1.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Xml;
 using System.Globalization;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using System.Xml;
 
 namespace FinalProjectAl1.Controllers
 {

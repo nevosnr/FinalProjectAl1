@@ -2,7 +2,6 @@
 using FinalProjectAl1.Data;
 using FinalProjectAl1.Models.LeaveTypes;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace FinalProjectAl1.Services;
 
