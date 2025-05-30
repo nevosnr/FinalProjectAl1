@@ -1,4 +1,5 @@
 using FinalProjectAl1.Data;
+using FinalProjectAl1.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -12,6 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<ILeaveTypesService, LeaveTypesService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

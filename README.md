@@ -4,12 +4,14 @@
 <hr>
 
 ## The project
-This ASP.NET project was initially concieved to complete the requirements of the final project module of 
-the BSc (Hons) in Computer Science I am currently (Spring/Summer 2025) completing with Hertfordshire University.
+This is an ASP.NET Core project for my final module studying towards a BSc(Hons) Computer Science. It will be a 'simple' Service Management tool bespoke to the requirements of my organisation.
 
-It has the purpose of both fulfilling the module requirements and will have a professional requirement for my current organisation.
+This application will ultimately start my portfolio of ASP.NET products of which I intend to seek future employment, either as a .NET developer or as a solutions/software architect. 
 
-To that end, the submission will in effect be a MVP of the organisational requirement and below there will be details on the developmental roadmap for this application.
+In combination with the final report, this project seeks to showcase not only my skills as a .net developer, but also that of a solutions architect.
+
+This application is being built with limited knowledge of the .NET workflow, I have experience in C# and the Unity 6 APIs where my hobby is video game development. This was the driver for me continuing with C# - as I am aiming to focus my knowledge in one area.
+
 
 
 
