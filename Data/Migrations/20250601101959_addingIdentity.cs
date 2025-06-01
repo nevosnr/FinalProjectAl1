@@ -7,7 +7,7 @@
 namespace FinalProjectAl1.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class SeedingDefaultData : Migration
+    public partial class addingIdentity : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -25,7 +25,7 @@ namespace FinalProjectAl1.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "bcc2dfed-07c8-40ef-a859-a8ec736d3a70", 0, "20fc1825-5af6-4dce-ae51-5aba61be4b5e", "admin@example.com", true, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEFQV35mBBsMoEq/abmHeWyhKWyjkIpLdZUIJviwT6RfP40Z7RHsfIn8Sa0XGvQN2TA==", null, false, "9785cd89-7d2d-4508-803f-df669b7a585a", false, "admin@example.com" });
+                values: new object[] { "bcc2dfed-07c8-40ef-a859-a8ec736d3a70", 0, "6698c39e-c112-4647-9ec0-1a2a0d4876df", "admin@example.com", true, false, null, "ADMIN@EXAMPLE.COM", "ADMIN@EXAMPLE.COM", "AQAAAAIAAYagAAAAEEOfAbaSx7tQ806QanUqplr2Ruvpko6PXwsx9UrmS+1hnQht/H3YeCBzFb798wqAqw==", null, false, "34c4f9e7-dd85-4ae7-b5ef-613a5bb287b4", false, "admin@example.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace FinalProjectAl1.Data
 {
@@ -10,9 +11,11 @@ namespace FinalProjectAl1.Data
             : base(options)
         {
         }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            
             base.OnModelCreating(builder);
             builder.Entity<IdentityRole>().HasData(new IdentityRole
             {
@@ -57,6 +60,6 @@ namespace FinalProjectAl1.Data
         }
 
         public DbSet<LeaveType> LeaveTypes { get; set; }
-        public DbSet<RequestType> RequestTypes { get; set; }
+        //public DbSet<RequestType> RequestTypes { get; set; }
     }
 }

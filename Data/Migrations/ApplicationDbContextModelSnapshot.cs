@@ -42,44 +42,6 @@ namespace FinalProjectAl1.Data.Migrations
                     b.ToTable("LeaveTypes");
                 });
 
-            modelBuilder.Entity("FinalProjectAl1.Data.RequestType", b =>
-                {
-                    b.Property<Guid>("Request_TaskId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Request_DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Request_EmailAdd")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Request_FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Request_LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Request_TaskDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Request_TeamSelect")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Request_TaskId");
-
-                    b.ToTable("RequestTypes");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -221,15 +183,15 @@ namespace FinalProjectAl1.Data.Migrations
                         {
                             Id = "bcc2dfed-07c8-40ef-a859-a8ec736d3a70",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "20fc1825-5af6-4dce-ae51-5aba61be4b5e",
+                            ConcurrencyStamp = "6698c39e-c112-4647-9ec0-1a2a0d4876df",
                             Email = "admin@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFQV35mBBsMoEq/abmHeWyhKWyjkIpLdZUIJviwT6RfP40Z7RHsfIn8Sa0XGvQN2TA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEOfAbaSx7tQ806QanUqplr2Ruvpko6PXwsx9UrmS+1hnQht/H3YeCBzFb798wqAqw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9785cd89-7d2d-4508-803f-df669b7a585a",
+                            SecurityStamp = "34c4f9e7-dd85-4ae7-b5ef-613a5bb287b4",
                             TwoFactorEnabled = false,
                             UserName = "admin@example.com"
                         });
