@@ -8,14 +8,24 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
+//Connection using the default connection in appsettings.json (used for identity framework)
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(connectionString);
     options.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
 
 });
+//New connection variable for the main Db connection.
+var tmscconnectionstring = builder.Configuration.GetConnectionString("TMSCFrontDoor") ?? throw new InvalidOperationException("Connection string 'TMSCFrontDoor' not found.");
+//Adding correct context for Request functions.
+builder.Services.AddDbContext<RequestDbContext>(options =>
+{
+    options.UseSqlServer(tmscconnectionstring);
+
+});
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddScoped<ILeaveTypesService, LeaveTypesService>();
