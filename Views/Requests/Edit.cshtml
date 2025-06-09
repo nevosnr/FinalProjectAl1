@@ -1,0 +1,94 @@
+﻿@model FinalProjectAl1.Models.Request
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Request</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RequestTaskId" />
+            <div class="form-group">
+                <label asp-for="RequestShortId" class="control-label"></label>
+                <input asp-for="RequestShortId" class="form-control" />
+                <span asp-validation-for="RequestShortId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestCreated" class="control-label"></label>
+                <input asp-for="RequestCreated" class="form-control" />
+                <span asp-validation-for="RequestCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestRank" class="control-label"></label>
+                <input asp-for="RequestRank" class="form-control" />
+                <span asp-validation-for="RequestRank" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestFirstName" class="control-label"></label>
+                <input asp-for="RequestFirstName" class="form-control" />
+                <span asp-validation-for="RequestFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestLastName" class="control-label"></label>
+                <input asp-for="RequestLastName" class="form-control" />
+                <span asp-validation-for="RequestLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestEmailAdd" class="control-label"></label>
+                <input asp-for="RequestEmailAdd" class="form-control" />
+                <span asp-validation-for="RequestEmailAdd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestContactPhone" class="control-label"></label>
+                <input asp-for="RequestContactPhone" class="form-control" />
+                <span asp-validation-for="RequestContactPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestUnitIdentifier" class="control-label"></label>
+                <input asp-for="RequestUnitIdentifier" class="form-control" />
+                <span asp-validation-for="RequestUnitIdentifier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestAssignedTo" class="control-label"></label>
+                <input asp-for="RequestAssignedTo" class="form-control" />
+                <span asp-validation-for="RequestAssignedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestTitle" class="control-label"></label>
+                <input asp-for="RequestTitle" class="form-control" />
+                <span asp-validation-for="RequestTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestTaskDescription" class="control-label"></label>
+                <input asp-for="RequestTaskDescription" class="form-control" />
+                <span asp-validation-for="RequestTaskDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestStatus" class="control-label"></label>
+                <input asp-for="RequestStatus" class="form-control" />
+                <span asp-validation-for="RequestStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequestArchive" class="control-label"></label>
+                <input asp-for="RequestArchive" class="form-control" />
+                <span asp-validation-for="RequestArchive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

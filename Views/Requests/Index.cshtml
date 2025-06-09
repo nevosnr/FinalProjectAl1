@@ -1,0 +1,107 @@
+﻿@model IEnumerable<FinalProjectAl1.Models.Request>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestShortId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestRank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestEmailAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestContactPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestUnitIdentifier)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestAssignedTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestTaskDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestArchive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestShortId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestRank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestEmailAdd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestContactPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestUnitIdentifier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestAssignedTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestTaskDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestArchive)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RequestTaskId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RequestTaskId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RequestTaskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
