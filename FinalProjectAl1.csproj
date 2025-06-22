@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -6,6 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-FinalProjectAl1-b6eee7d9-bc86-430f-94b3-ab2a3fc944ef</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ConvertMVCToBlazor\**" />
+    <Content Remove="ConvertMVCToBlazor\**" />
+    <EmbeddedResource Remove="ConvertMVCToBlazor\**" />
+    <None Remove="ConvertMVCToBlazor\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
