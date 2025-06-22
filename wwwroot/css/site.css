@@ -29,3 +29,18 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+body.bg-watermark {
+    background-image: url('../images/image2.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain;
+}
+
+.right-centre-image{
+    position: absolute;
+    top:300px;
+    right:-10%;
+    max-height:600px;
+    z-index: 1;
+}
