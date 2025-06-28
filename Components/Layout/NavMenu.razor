@@ -1,0 +1,53 @@
+﻿@using MudBlazor
+@inject NavigationManager NavigationManager
+
+<MudDrawer Elevation="1" ClipMode="DrawerClipMode.Always" Variant="DrawerVariant.Mini" Open="true" Class="mud-width-260 mud-theme-default">
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6">
+            <img src="images/image1.png" alt="Crest" style="height: 25px;" class="me-2" />
+            TMSC Portal
+        </MudText>
+    </MudDrawerHeader>
+
+    <MudNavMenu Dense="true">
+
+        <MudNavLink Href="" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">
+            Home
+        </MudNavLink>
+
+        <MudNavLink Href="counter" Icon="@Icons.Material.Filled.ListAlt" Match="NavLinkMatch.All">
+            View Tasks
+        </MudNavLink>
+
+        <MudNavLink Href="requests" Icon="@Icons.Material.Filled.AddTask" Match="NavLinkMatch.All">
+            Raise New Task
+        </MudNavLink>
+
+        <MudNavLink Href="auth" Icon="@Icons.Material.Filled.Map" Match="NavLinkMatch.All">
+            View Sortie
+        </MudNavLink>
+
+        <MudDivider Class="my-2" />
+
+        <AuthorizeView>
+            <Authorized>
+                <MudNavLink Href="Account/Manage" Icon="@Icons.Material.Filled.Person">
+                    @context.User.Identity?.Name
+                </MudNavLink>
+
+                <MudNavLink Href="Account/Logout" Icon="@Icons.Material.Filled.ExitToApp">
+                    Logout
+                </MudNavLink>
+            </Authorized>
+            <NotAuthorized>
+                <MudNavLink Href="Account/Register" Icon="@Icons.Material.Filled.PersonAdd">
+                    Register
+                </MudNavLink>
+                <MudNavLink Href="Account/Login" Icon="@Icons.Material.Filled.Login">
+                    Login
+                </MudNavLink>
+            </NotAuthorized>
+        </AuthorizeView>
+
+    </MudNavMenu>
+</MudDrawer>

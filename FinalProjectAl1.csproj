@@ -8,14 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ConvertMVCToBlazor\**" />
-    <Content Remove="ConvertMVCToBlazor\**" />
-    <EmbeddedResource Remove="ConvertMVCToBlazor\**" />
-    <None Remove="ConvertMVCToBlazor\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
@@ -27,6 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="MudBlazor" Version="8.8.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,24 @@
+﻿<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.MainLayout)">
+                <NotAuthorized>
+                    @* Redirect manually to the MVC login page *@
+                    @code {
+                        protected override void OnAfterRender(bool firstRender)
+                        {
+                            if (firstRender)
+                            {
+                                Navigation.NavigateTo($"Account/Login?returnUrl={Uri.EscapeDataString(Navigation.Uri)}", forceLoad: true);
+                            }
+                        }
+
+                        [Inject] NavigationManager Navigation { get; set; } = default!;
+                        [Inject] NavigationManager UriHelper { get; set; } = default!;
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+    </Router>
+</CascadingAuthenticationState>

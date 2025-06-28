@@ -1,0 +1,63 @@
+﻿@page "/requests"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using MudBlazor
+@using FinalProjectAl1.Models
+@using FinalProjectAl1.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<FinalProjectAl1.Data.RequestDbContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="requests/create">Create New</a>
+</p>
+
+<MudTable Items="_requests" Hover="true" Dense="true">
+    <HeaderContent>
+        <MudTh>Short ID</MudTh>
+        <MudTh>Created</MudTh>
+        <MudTh>Rank</MudTh>
+        <MudTh>First Name</MudTh>
+        <MudTh>Last Name</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Phone</MudTh>
+        <MudTh>Unit</MudTh>
+        <MudTh>Assigned to </MudTh>
+        <MudTh>Title</MudTh>
+        <MudTh>Description</MudTh>
+        <MudTh>Status</MudTh>
+        <MudTh>Archive</MudTh>
+        <MudTh>Actions</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Short ID">@context.RequestShortId</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestCreated</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestRank</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestFirstName</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestLastName</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestEmailAdd</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestContactPhone</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestUnitIdentifier</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestAssignedTo</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestTitle</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestTaskDescription</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestStatus</MudTd>
+        <MudTd DataLabel="Short ID">@context.RequestArchive</MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private List<Request> _requests = new();
+    private RequestDbContext _context = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _context = DbFactory.CreateDbContext();
+        _requests = await _context.Requests.ToListAsync();
+    }
+
+    public async ValueTask DisposeAsync() => await _context.DisposeAsync();
+}

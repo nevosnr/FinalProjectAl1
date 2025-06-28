@@ -1,0 +1,104 @@
+﻿@page "/requests/create"
+@using Microsoft.EntityFrameworkCore
+@using FinalProjectAl1.Models
+@inject IDbContextFactory<FinalProjectAl1.Data.RequestDbContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Request</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Request" OnValidSubmit="AddRequest" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="requestshortid" class="form-label">RequestShortId:</label> 
+                <MudTextField id="requestshortid" @bind-Value="Request.RequestShortId" class="form-control" /> 
+                <ValidationMessage For="() => Request.RequestShortId" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestcreated" class="form-label">RequestCreated:</label> 
+                <InputDate id="requestcreated" @bind-Value="Request.RequestCreated" class="form-control" /> 
+                <ValidationMessage For="() => Request.RequestCreated" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestrank" class="form-label">RequestRank:</label> 
+                <MudTextField id="requestrank" @bind-Value="Request.RequestRank" class="form-control" />
+                <ValidationMessage For="() => Request.RequestRank" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestfirstname" class="form-label">RequestFirstName:</label> 
+                <MudTextField id="requestfirstname" @bind-Value="Request.RequestFirstName" class="form-control" />
+                <ValidationMessage For="() => Request.RequestFirstName" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestlastname" class="form-label">RequestLastName:</label> 
+                <MudTextField id="requestlastname" @bind-Value="Request.RequestLastName" class="form-control" />
+                <ValidationMessage For="() => Request.RequestLastName" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestemailadd" class="form-label">RequestEmailAdd:</label> 
+                <MudTextField id="requestemailadd" @bind-Value="Request.RequestEmailAdd" class="form-control" />
+                <ValidationMessage For="() => Request.RequestEmailAdd" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestcontactphone" class="form-label">RequestContactPhone:</label> 
+                <MudTextField id="requestcontactphone" @bind-Value="Request.RequestContactPhone" class="form-control" />
+                <ValidationMessage For="() => Request.RequestContactPhone" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestunitidentifier" class="form-label">RequestUnitIdentifier:</label> 
+                <MudTextField id="requestunitidentifier" @bind-Value="Request.RequestUnitIdentifier" class="form-control" />
+                <ValidationMessage For="() => Request.RequestUnitIdentifier" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestassignedto" class="form-label">RequestAssignedTo:</label> 
+                <MudTextField id="requestassignedto" @bind-Value="Request.RequestAssignedTo" class="form-control" />
+                <ValidationMessage For="() => Request.RequestAssignedTo" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requesttitle" class="form-label">RequestTitle:</label> 
+                <MudTextField id="requesttitle" @bind-Value="Request.RequestTitle" class="form-control" />
+                <ValidationMessage For="() => Request.RequestTitle" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requesttaskdescription" class="form-label">RequestTaskDescription:</label> 
+                <MudTextField id="requesttaskdescription" @bind-Value="Request.RequestTaskDescription" class="form-control" />
+                <ValidationMessage For="() => Request.RequestTaskDescription" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requeststatus" class="form-label">RequestStatus:</label> 
+                <MudTextField id="requeststatus" @bind-Value="Request.RequestStatus" class="form-control" /> 
+                <ValidationMessage For="() => Request.RequestStatus" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="requestarchive" class="form-label">RequestArchive:</label> 
+                <MudCheckBox id="requestarchive" @bind-Value="Request.RequestArchive" class="form-check-input" /> 
+                <ValidationMessage For="() => Request.RequestArchive" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/requests">Back to List</a>
+</div>
+
+@code {
+
+    private Request Request { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddRequest()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.Requests.Add(Request);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/requests");
+    }
+}
